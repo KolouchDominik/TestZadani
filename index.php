@@ -31,7 +31,7 @@ function Memisek(){
 } 
 function Names(){
     $.ajax({url:"scripts/jmena.php", success:function(result){
-    $("#content").html(result);}
+    $("#content").html(result);}    
 })
 } 
 function Calcul(){
