@@ -1,17 +1,18 @@
 <?php
-        $json = file_get_contents("https://www.digilabs.cz/hiring/data.json");
-        $data = json_decode($json, true);
+        include 'JsonLoader.php';
         function Calcul($arr)
         {
-            for($i = 0; $i < count($arr); $i++)
+            foreach($arr as $key=>$value) 
             {
-                $firstNum = $arr[$i]['firstNumber'];
-                $secondNum = $arr[$i]['secondNumber'];
-                $thirdNum = $arr[$i]['thirdNumber'];
+                $firstNum = $value['firstNumber'];
+                $secondNum = $value['secondNumber'];
+                $thirdNum = $value['thirdNumber'];
 
-                if($firstNum%2==0&& ($firstNum/$secondNum == $thirdNum)) echo ($firstNum . "/" .$secondNum . "=" . $thirdNum . "<br>\n");
+                if($firstNum%2===0&& ($firstNum/$secondNum === $thirdNum))
+                {
+                     echo ($firstNum . '/' .$secondNum . '=' . $thirdNum . '<br>');
+                }
             }
         }
         Calcul($data);
-    ?>
     

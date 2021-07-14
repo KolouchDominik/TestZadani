@@ -1,25 +1,27 @@
 <?php
-        $json = file_get_contents("https://www.digilabs.cz/hiring/data.json");
-        $data = json_decode($json, true);
+        include 'JsonLoader.php';
         function Names($arr)
         {
             
-            for($i = 0; $i < count($arr); $i++)
+            foreach($arr as $key=>$value) 
             {
                 $matchpoints = 1;
-                $name = $arr[$i]['name'];
+                $name = $value['name'];
                 $names = explode(" ",$name);
+                //tenhle for tady musí být
                 for($j = 1; $j < count($names);$j++)
                 {
-                    if(substr($names[($j-1)],0,1)==substr($names[$j],0,1))$matchpoints++;
+                    if(substr($names[($j-1)],0,1)===substr($names[$j],0,1))
+                    {
+                        $matchpoints++;
+                    }
                 }
-                if($matchpoints == count($names))
+                if($matchpoints === count($names))
                 {
-                    echo $name."<br>\n";
+                    echo $name.'<br>';
                 }
                 
             }
         }
         Names($data);
-    ?>
     
