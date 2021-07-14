@@ -16,6 +16,7 @@
             <button class="button" onclick="Numbers()">Akce 3</button>
             <button class="button" onclick="DateComp()">Akce 4</button>
             <button class="button" onclick="Calcul()">Akce 5</button>
+            
     </div>
 
     <div id="content">
